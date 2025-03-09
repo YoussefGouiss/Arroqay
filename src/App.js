@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import ArrogayWebsite from './component/pages/Home';
+import ProductCard from './component/pages/product';
+import NotFoundPage from './component/pages/notFound';
+import ReturnFavories from './component/pages/ReturnFavoris';
+import LoginPage from './component/pages/login';
+import ForgotPasswordPage from './component/pages/forgetPassword';
+import ContactPage from './component/pages/contactPage';
+import AccountCreationForm from './component/pages/connexion';
 
 function App() {
   return (
-    <div className="App" >
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        
-      </header>
-    </div>
+   <>
+   <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<ArrogayWebsite/>}/>
+      <Route path='/product' element={<ProductCard/>}/>
+      <Route path='*' element={<NotFoundPage/>}/>
+      <Route path='/Favorites' element={<ReturnFavories/>}/>
+      <Route path='/login' element={<LoginPage/>}/>
+      <Route path='/ForgotPassword' element={<ForgotPasswordPage/>}/>
+      <Route path='/contact' element={<ContactPage/>}/>
+      <Route path='/signup' element={<AccountCreationForm/>}/>
+    </Routes>
+   </BrowserRouter>
+   </>
   );
 }
 
